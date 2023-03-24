@@ -1,0 +1,33 @@
+ --- Debug log ------ 
+DeepSearch log: edge 1 is looking for edge 11
+DeepSearch log: edge 1 looking for edge 11 in edge 2
+DeepSearch log: edge 2 looking for edge 11 in edge 5
+DeepSearch log: edge 11 not connected with edge 5
+DeepSearch log: edge 11 not connected with edge 2
+DeepSearch log: edge 1 looking for edge 11 in edge 3
+DeepSearch log: edge 3 looking for edge 11 in edge 6
+DeepSearch log: edge 6 looking for edge 11 in edge 9
+DeepSearch log: edge 11 not connected with edge 9
+DeepSearch log: edge 11 not connected with edge 6
+DeepSearch log: edge 3 looking for edge 11 in edge 7
+DeepSearch log: edge 11 not connected with edge 7
+DeepSearch log: edge 3 looking for edge 11 in edge 4
+DeepSearch log: edge 4 looking for edge 11 in edge 10
+DeepSearch log: edge 11 not connected with edge 10
+DeepSearch log: edge 4 looking for edge 11 in edge 13
+DeepSearch log: edge 11 not connected with edge 13
+DeepSearch log: edge 4 looking for edge 11 in edge 14
+DeepSearch log: edge 14 looking for edge 11 in edge 15
+DeepSearch log: edge 11 not connected with edge 15
+DeepSearch log: edge 11 not connected with edge 14
+DeepSearch log: edge 4 looking for edge 11 in edge 8
+DeepSearch log: edge 8 looking for edge 11 in edge 11
+DeepSearch log: edge 11 was found
+DeepSearch log: edge 8 connected with edge 11
+DeepSearch log: edge 4 connected with edge 8
+DeepSearch log: edge 3 connected with edge 4
+DeepSearch log: edge 1 connected with edge 3
+DeepSearch log: return from DeepSearch
+ --- Looking ended -- 
+
+result of looking: 1 -> 3 -> 4 -> 8 -> 11
