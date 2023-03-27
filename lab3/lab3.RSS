@@ -1,0 +1,291 @@
+GOAL: TypeAnimal
+
+WINDOW:
+    ROW:	1
+    COLUMN:	1
+    DEPTH:	15
+    WIDTH:	75
+    FORG:	W
+    BAGC:	U
+
+INITIAL:
+    e.lstr = 80  /* длина строки вывода */
+/*e.rigr = "a" нтересно проследить попытку обработать все правила  TypeAnimal*/
+    TypeAnimal = unknown
+    backbone = unknown
+    superphylum = unknown
+    phylum = unknown
+    class = unknown
+    order1 = unknown
+    family = unknown
+    genus = unknown
+    species = unknown
+    subspecies = unknown
+    WarmBlooded = unknown
+    HasBreasts = unknown
+    CanEatMeat = unknown
+    fly = unknown
+    OpposingThumb = unknown
+    PrehensileTail = unknown
+    NearlyHairless = unknown
+    LongPowerfulArms = unknown
+    hasArmor = unknown
+    plancton = unknown
+    has10legs = unknown
+    OUTPUT
+    OUTPUT "Возможный тип трассировки:"
+    OUTPUT "N - отсутствие трассировки"
+    OUTPUT "F - только доказанные правила"
+    OUTPUT "C - доказанные и рассмотренные правила"
+    OUTPUT "V - рассмотренные правила и все встретившиеся"
+    OUTPUT "неизвестные переменные"
+    INPUT  e.trac with "Определите тип трассировки?"
+    OUTPUT   
+    OUTPUT   "Допустимые ответы пользователя: - 'y' или 'n'"
+    OUTPUT   
+
+RULE: R1
+    IF: backbone = "y" /*позвоночник*/
+    THEN: superphylum = "позвоночные" /*backbone*/
+    REASON: Сверхтип позвоночные
+
+RULE: R2
+    IF: backbone = "n"
+    THEN: superphylum = "беспозвоночные" /*jellyback*/
+    REASON: Сверхтип беспозвоночные
+
+RULE: R3
+    IF: superphylum = "беспозвоночные" /*jellyback*/
+    THEN: phylum = "членистоногi"
+    REASON: цепочка рассуждений оборвана 
+
+RULE: R4
+    IF: superphylum = "позвоночные"  AND  WarmBlooded = "y"
+    THEN: phylum = "теплокровные" /*warm*/
+    REASON: Тип теплокровные
+
+RULE: R5
+    IF: superphylum = "позвоночные"  AND  WarmBlooded = "n"
+    THEN: phylum = "холоднокровные" /*cold*/
+    REASON: Тип холоднокровные
+
+RULE: R6
+    IF: phylum = "холоднокровные" /*cold*/
+    THEN: TypeAnimal = "не может быть мною определено, цепочка рассуждений оборвана"
+    REASON: цепочка рассуждений оборвана
+
+RULE: R7
+    IF: phylum = "теплокровные" AND backbone = "y" AND HasBreasts = "y"
+    THEN: class = "млекопитающие" /*breasts*/
+    REASON: Класс млекопитающие
+
+RULE: R8
+    IF: phylum = "теплокровные" AND backbone = "y" AND HasBreasts = "y"
+    THEN: TypeAnimal = "птица/пингвин"
+    REASON: тип животного = "птица/пингвин"
+
+RULE: R9
+    IF: class = "млекопитающие" AND CanEatMeat = "y" 
+    THEN: order1 = "хищники" /*meat*/
+    REASON: Отряд хищники
+
+RULE: R10
+    IF: class = "млекопитающие" AND CanEatMeat = "n"
+    THEN: order1 = "травоядные" /*vegy*/
+    REASON: Отряд травоядные
+
+RULE: R11
+    IF: order1 = "травоядные" /*vegy*/
+    THEN: TypeAnimal = "не может быть мною определено, цепочка рассуждений оборвана"
+    REASON: цепочка рассуждений оборвана
+
+RULE: R12
+    IF: order1 = "хищники" & fly = "y"
+    THEN: TypeAnimal = "летучая мышь"
+    REASON: тип животного = "летучая мышь"
+
+RULE: R13
+    IF: order1 = "хищники"  & fly = "n"
+    THEN: family = "бескрылые"
+    REASON: Семейство бескрылые - nowings
+
+RULE: R14
+    IF: family = "бескрылые" AND OpposingThumb = "y"
+    THEN: genus = "thumb" /*обратный большой палец, свойственен человеку и  обезьяне*/
+    REASON: Род 
+
+RULE: R15
+    IF: family = "бескрылые" AND OpposingThumb = "n"
+    THEN: genus = "nothumb"
+    REASON: Род nothumb
+
+RULE: R16
+    IF: genus = "nothumb"
+    THEN: TypeAnimal = "не может быть мною определено, цепочка рассуждений оборвана"
+    REASON: цепочка рассуждений оборвана
+
+RULE: R17
+    IF: genus = "thumb" AND PrehensileTail = "y"
+    THEN: TypeAnimal = "обезьяна" /*monkey*/
+
+RULE: R18
+    IF: genus = "thumb" AND PrehensileTail = "n"
+    THEN: species = "бесхвостые" /*notail*/
+    REASON: Вид бесхвостые
+
+RULE: R19
+    IF: species = "бесхвостые" AND NearlyHairless = "y"
+    THEN: TypeAnimal = "человек" /*man*/
+    REASON: тип животного = "человек"
+
+RULE: R20
+    IF: species  = "бесхвостые" AND NearlyHairless = "n"
+    THEN: subspecies  = "длинношерстные" /*hair*/
+    REASON: Подвид длинношерстные 
+
+RULE: R21
+    IF: subspecies  = "длинношерстные" AND LongPowerfulArms = "y"
+    THEN: TypeAnimal = "орангутанг/горилла/шимпанзе"
+
+RULE: R22
+    IF: subspecies  = "длинношерстные" AND LongPowerfulArms = "n"
+    THEN: TypeAnimal = "бабуин"
+
+RULE: R23
+    IF: phylum = "членистоногi" AND hasArmor =  "y" AND plancton =  "n"
+    THEN: class = "вищi ракоподiбнi"
+    REASON: цепочка рассуждений оборвана
+
+RULE: R24
+    IF: phylum = "членистоногi" AND  hasArmor =  "y" AND plancton =  "y"
+     THEN: class = "нижчi ракоподiбнi"
+    REASON: цепочка рассуждений оборвана
+
+RULE: R25
+    IF: phylum = "членистоногi" AND  hasArmor = "n" AND plancton = "y"
+    THEN: TypeAnimal = "20не может быть мною определено, цепочка рассуждений оборвана"
+    REASON: цепочка рассуждений оборвана
+
+RULE: R26
+    IF: phylum = "членистоногi" AND   hasArmor = "n" AND plancton = "n"
+    THEN: TypeAnimal = "30не может быть мною определено, цепочка рассуждений оборвана"
+    REASON: цепочка рассуждений оборвана
+
+RULE: R27
+    IF: class  = "нижчi ракоподiбнi"
+    THEN: TypeAnimal = "не может быть мною определено, цепочка рассуждений оборвана"
+    REASON: цепочка рассуждений оборвана
+
+RULE: R28
+    IF: class  = "вищi ракоподiбнi" AND has10legs = "y"
+    THEN: TypeAnimal = "криветка"
+
+RULE: R29
+    IF: class  = "вищi ракоподiбнi" AND has10legs = "n"
+    THEN: order1  = "десятиногi"
+
+RULE: R30
+    IF: order1  = "десятиногi
+    THEN: TypeAnimal = "не может быть мною определено, цепочка рассуждений оборвана"
+    REASON: цепочка рассуждений оборвана
+
+VARIABLE: TypeAnimal
+    LABEL: тип животного
+
+VARIABLE: superphylum 
+    LABEL: сверхтип - superphylum
+
+VARIABLE: phylum 
+    LABEL: тип - phylum
+
+VARIABLE: class 
+    LABEL: класс - class
+
+VARIABLE: order1
+    LABEL: отряд - order1
+
+VARIABLE: family 
+    LABEL: семья - family
+
+VARIABLE: genus 
+    LABEL: род - genus
+
+VARIABLE: species 
+    LABEL: вид - species
+
+VARIABLE: subspecies 
+    LABEL: подвид - subspecies
+
+VARIABLE: subsubspecies 
+    LABEL: подподвид - subspecies
+
+VARIABLE:  backbone
+    LABEL: позвоночник - backbone 
+    FIND: INPUT backbone WITH\
+    "Ваше животное имеет позвоночник?  (y/n) "
+
+VARIABLE:  WarmBlooded
+    LABEL: признак теплокровности
+    FIND: INPUT WarmBlooded WITH\
+    "Ваше животное теплокровное?  (y/n)"
+
+VARIABLE: HasBreasts 
+    LABEL:  является млекопитающим
+    FIND: INPUT HasBreasts WITH\
+    "Обычно ваше животное вскармливает младенца молоком?  (y/n)"
+
+VARIABLE: CanEatMeat 
+    LABEL: питается красным мясом
+    FIND: INPUT CanEatMeat WITH\
+    "Ваше животное ест красное мясо?  (y/n)"
+
+VARIABLE: fly 
+    LABEL: способно летать
+    FIND: INPUT fly WITH\
+    "Ваше животное может летать?  (y/n)"
+
+VARIABLE: OpposingThumb
+    LABEL: наличие противостоящего большого пальца 
+    FIND: INPUT OpposingThumb with\
+    "Ваше животное имеет противостоящий большой палец?  (y/n)"
+
+VARIABLE: PrehensileTail
+    LABEL:  наличие цепкого хвоста
+    FIND: INPUT PrehensileTail with\
+    "Ваше животное имеет цепкий хвост?  (y/n)"
+
+VARIABLE: NearlyHairless 
+    LABEL:  наличие шерстяного покрова
+    FIND: INPUT NearlyHairless with\
+    "Ваше животное почти лысое (почти не имеет шерстяного покрова)?  (y/n)"
+
+VARIABLE: LongPowerfulArms 
+    LABEL:  наличие шерстяного покрова
+    FIND: INPUT LongPowerfulArms with\
+    "Ваше животное имеет длинные и сильные руки?  (y/n)"
+
+VARIABLE: hasArmor
+    LABEL: наявнiсть зашисного панциру
+    FIND: INPUT hasArmor with\
+    "Наявний захисний панцир?  (y/n)"
+
+VARIABLE: plancton
+    LABEL:  планктон
+    FIND: INPUT plancton with\
+    "Належить до планктону?  (y/n)"
+
+VARIABLE: has10legs
+    LABEL:  десятиноге
+    FIND: INPUT has10legs with\
+    "має 10 нiг?  (y/n)"
+DO:
+    OUTPUT
+    OUTPUT
+    OUTPUT "Я ДУМАЮ, ЧТО ВАШЕ ЖИВОТНОЕ - ", TypeAnimal
+    OUTPUT
+    OUTPUT
+    OUTPUT "Для продолжения нажмите любую клавишу "
+    wait
+    clear
+END:
+
