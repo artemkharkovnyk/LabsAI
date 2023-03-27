@@ -1,0 +1,90 @@
+epoch 1
+  mean value of quality function: -3.94804e+07
+  first 5 individuals: 103 198 105 115 81 
+epoch 2
+  mean value of quality function: -1.88919e+07
+  first 5 individuals: 118 116 16 54 193 
+epoch 3
+  mean value of quality function: -2.4878e+07
+  first 5 individuals: 63 191 35 103 72 
+epoch 4
+  mean value of quality function: -1.16773e+07
+  first 5 individuals: 115 18 106 96 227 
+epoch 5
+  mean value of quality function: -1.27575e+07
+  first 5 individuals: 78 206 107 107 216 
+epoch 6
+  mean value of quality function: -1.16056e+07
+  first 5 individuals: 23 22 216 72 34 
+epoch 7
+  mean value of quality function: -1.78387e+06
+  first 5 individuals: 18 18 115 87 98 
+epoch 8
+  mean value of quality function: -840629
+  first 5 individuals: 18 50 58 2 18 
+epoch 9
+  mean value of quality function: -79822.1
+  first 5 individuals: 50 38 18 50 23 
+epoch 10
+  mean value of quality function: -75909.8
+  first 5 individuals: 18 39 34 18 2 
+epoch 11
+  mean value of quality function: -553174
+  first 5 individuals: 38 6 18 16 18 
+epoch 12
+  mean value of quality function: -51084.2
+  first 5 individuals: 18 34 38 38 38 
+epoch 13
+  mean value of quality function: -24282.4
+  first 5 individuals: 22 18 34 54 2 
+epoch 14
+  mean value of quality function: -28810.5
+  first 5 individuals: 2 18 38 18 22 
+epoch 15
+  mean value of quality function: -12579.9
+  first 5 individuals: 18 6 18 18 34 
+epoch 16
+  mean value of quality function: -2729.65
+  first 5 individuals: 2 18 18 18 18 
+epoch 17
+  mean value of quality function: -1698.35
+  first 5 individuals: 18 18 18 18 2 
+epoch 18
+  mean value of quality function: -8.47059
+  first 5 individuals: 2 2 2 2 2 
+epoch 19
+  mean value of quality function: 0
+  first 5 individuals: 2 2 2 2 2 
+epoch 20
+  mean value of quality function: 0
+  first 5 individuals: 2 2 2 2 2 
+epoch 21
+  mean value of quality function: 0
+  first 5 individuals: 2 2 2 2 2 
+epoch 22
+  mean value of quality function: 0
+  first 5 individuals: 2 2 2 2 2 
+epoch 23
+  mean value of quality function: 0
+  first 5 individuals: 2 2 2 2 2 
+epoch 24
+  mean value of quality function: 0
+  first 5 individuals: 2 2 2 2 2 
+epoch 25
+  mean value of quality function: 0
+  first 5 individuals: 2 2 2 2 2 
+epoch 26
+  mean value of quality function: 0
+  first 5 individuals: 2 2 2 2 2 
+epoch 27
+  mean value of quality function: 0
+  first 5 individuals: 2 2 2 2 2 
+epoch 28
+  mean value of quality function: -1372.24
+  first 5 individuals: 2 2 2 2 2 
+epoch 29
+  mean value of quality function: 0
+  first 5 individuals: 2 2 2 2 2 
+epoch 30
+  mean value of quality function: 0
+  first 5 individuals: 2 2 2 2 2 
